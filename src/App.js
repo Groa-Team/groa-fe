@@ -1,9 +1,11 @@
 import React from "react";
 
+import Register from "./components/onboarding/Register.js";
+
 function App() {
   return (
     <div className="App">
-      <p>Hello world!</p>
+      <Register />
     </div>
   );
 }
