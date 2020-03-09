@@ -98,11 +98,11 @@ export default function Register() {
           {errors?.confirm_password?.type && (
             <p className="error">{errors?.confirm_password?.message}</p>
           )}
-          <span>
+          <div className="submit btn">
             <button type="submit">
               <strong>Sign Up</strong>
             </button>
-          </span>
+          </div>
         </form>
       </div>
     </div>
