@@ -1,20 +1,35 @@
-.container {
+.container,
+.container.login-component {
   width: 87%;
   margin: auto;
   @include display-flex();
+  @media screen and (max-width: $tablet-wide) {
+    width: 95%;
+    flex-direction: column;
+  }
   #logo {
     @include responsive-container(100%, 45%);
     margin: 3% auto;
     margin-left: 6%;
+    @media screen and (max-width: $tablet-wide) {
+      @include responsive-container(100%, 25%);
+    }
   }
   .form-container {
     margin: auto;
     padding: 3.3% 0%;
     @include radius;
     @include responsive-container(100%, 40%);
+    @media screen and (max-width: $tablet-wide) {
+      @include responsive-container(100%, 100%);
+    }
+
     h2 {
       font-size: $baseFontSize * 2.3;
       text-align: center;
+      @media screen and (max-width: $tablet-wide) {
+        font-size: $baseFontSize * 1.4;
+      }
     }
     .register-form,
     .login-form {
@@ -38,9 +53,15 @@
       .submit.btn {
         @include display-flex(space-evenly);
         flex-direction: row-reverse;
+        @media screen and (max-width: $tablet-wide) {
+          flex-direction: column-reverse;
+        }
         .form-link {
           margin: auto;
           color: $sea;
+          @media screen and (max-width: $tablet-wide) {
+            margin: 4% auto;
+          }
         }
         button {
           margin: 4% 0% 4% 14%;
@@ -50,6 +71,11 @@
           font-size: $baseFontSize * 1.1;
           background: $sea;
           color: $white;
+          @media screen and (max-width: $tablet-wide) {
+            @include responsive-container(100%, 100%, 46px);
+            margin: 8% auto;
+          }
+
           &:hover {
             background: $black;
           }
@@ -60,5 +86,11 @@
 
   .error {
     color: red;
+  }
+}
+
+.container.login-component {
+  @media screen and (max-width: $tablet-wide) {
+    flex-direction: column-reverse;
   }
 }
