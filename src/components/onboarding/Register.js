@@ -18,8 +18,9 @@ export default function Register() {
         <h2>Register</h2>
         <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
           <input
+            className={errors?.email ? "input-error" : undefined}
             type="text"
-            placeholder="Email"
+            placeholder="email"
             name="email"
             ref={register({
               required: inputError(true, "email is required"),
@@ -27,10 +28,11 @@ export default function Register() {
             })}
           />
           {errors?.email?.type && (
-            <p className="input-error">{errors?.email?.message}</p>
+            <p className="error">{errors?.email?.message}</p>
           )}
 
           <input
+            className={errors?.username ? "input-error" : undefined}
             type="text"
             placeholder="username"
             name="username"
@@ -45,10 +47,11 @@ export default function Register() {
             })}
           />
           {errors?.username?.type && (
-            <p className="input-error">{errors?.username?.message}</p>
+            <p className="error">{errors?.username?.message}</p>
           )}
 
           <input
+            className={errors?.password ? "input-error" : undefined}
             type="password"
             placeholder="password"
             name="password"
@@ -66,10 +69,11 @@ export default function Register() {
             })}
           />
           {errors?.password?.type && (
-            <p className="input-error">{errors?.password?.message}</p>
+            <p className="error">{errors?.password?.message}</p>
           )}
 
           <input
+            className={errors?.confirm_password ? "input-error" : undefined}
             type="password"
             placeholder="confirm password"
             name="confirm_password"
@@ -82,7 +86,7 @@ export default function Register() {
             })}
           />
           {errors?.confirm_password?.type && (
-            <p className="input-error">{errors?.confirm_password?.message}</p>
+            <p className="error">{errors?.confirm_password?.message}</p>
           )}
           <span>
             <button type="submit">
