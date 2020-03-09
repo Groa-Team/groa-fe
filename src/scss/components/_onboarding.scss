@@ -16,7 +16,8 @@
       font-size: $baseFontSize * 2.3;
       text-align: center;
     }
-    .register-form {
+    .register-form,
+    .login-form {
       @include responsive-container(100%, 55%);
       @include display-flex();
       flex-direction: column;
@@ -34,7 +35,7 @@
       input.input-error {
         border: 1px solid red;
       }
-      span {
+      .submit.btn {
         display: flex;
         justify-content: flex-end;
         button {
