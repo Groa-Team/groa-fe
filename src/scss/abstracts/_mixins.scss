@@ -1,0 +1,27 @@
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == max {
+      $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin display-flex($j: center, $a: center) {
+  display: flex;
+  justify-content: $j;
+  align-content: $a;
+}
+
+@mixin radius {
+  border-radius: 4px;
+}
+
+@mixin responsive-container($width: 100%, $mwidth: 500px, $height: auto) {
+  width: $width;
+  max-width: $mwidth;
+  height: $height;
+}
