@@ -23,8 +23,8 @@ export default function Register() {
             placeholder="email"
             name="email"
             ref={register({
-              required: inputError(true, "email is required"),
-              pattern: inputError(/^\S+@\S+$/i, "must be a valid email")
+              required: inputError(true, "What's your email?"),
+              pattern: inputError(/^\S+@\S+$/i, "Must be a valid email.")
             })}
           />
           {errors?.email?.type && (
@@ -37,12 +37,12 @@ export default function Register() {
             placeholder="username"
             name="username"
             ref={register({
-              required: inputError(true, "username is required"),
-              minLength: inputError(4, "must be at least 4 characters long"),
-              maxLength: inputError(12, "must be less than 13 characters"),
+              required: inputError(true, "What would you like to be called?"),
+              minLength: inputError(4, "Must be at least 4 characters long."),
+              maxLength: inputError(12, "Must be less than 13 characters."),
               pattern: inputError(
                 /^[a-zA-Z0-9]\S*$/i,
-                "username cannot contain spaces"
+                "Username cannot contain spaces."
               )
             })}
           />
@@ -56,16 +56,22 @@ export default function Register() {
             placeholder="password"
             name="password"
             ref={register({
-              required: inputError(true, "password is required"),
-              minLength: inputError(8, "must be at least 8 characters long"),
+              required: inputError(true, "Please enter a password."),
+              minLength: inputError(8, "Must be at least 8 characters long."),
               maxLength: inputError(
                 15,
-                "cannot be more than 15 characters long"
+                "Cannot be more than 15 characters long."
               ),
-              pattern: inputError(
-                /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/i,
-                "must contain one uppercase character, one lower case letter, and at least 1 numerical digit, and one special character."
-              )
+              validate: {
+                oneLetter: value =>
+                  /^(?=.*[a-z])(?=.*[A-Z])/i.test(value) ||
+                  "Must contain one letter character.",
+                oneNumber: value =>
+                  /^(?=.*[0-9])/i.test(value) || "Must contain one number.",
+                oneSpecial: value =>
+                  /^(?=.*[@#$%^&+=!])/i.test(value) ||
+                  "Must contain one special character."
+              }
             })}
           />
           {errors?.password?.type && (
@@ -78,10 +84,11 @@ export default function Register() {
             placeholder="confirm password"
             name="confirm_password"
             ref={register({
-              required: inputError(true, "please confirm your password"),
+              required: inputError(true, "Please confirm your password."),
               validate: {
                 matchPassword: value =>
-                  value === getValues().password || "passwords do not match"
+                  value === getValues().password ||
+                  "These passwords do no match."
               }
             })}
           />

@@ -23,9 +23,13 @@
         @include responsive-container(100%, 95%);
         margin: 3% auto;
         padding: 2.8%;
+        border: 1px solid $white2;
       }
       input::placeholder {
         font-size: 1.1rem;
+      }
+      input.input-error {
+        border: 1px solid red;
       }
       span {
         display: flex;
@@ -45,9 +49,7 @@
       }
     }
   }
-  .input-error {
-    border: 1px solid red;
-  }
+
   .error {
     color: red;
   }
