@@ -1,14 +1,17 @@
 .container {
-  @include display-flex(space-evenly);
+  width: 87%;
+  margin: auto;
+  @include display-flex();
   #logo {
     @include responsive-container(100%, 45%);
-    margin: auto;
+    margin: 3% auto;
+    margin-left: 6%;
   }
   .form-container {
     margin: auto;
     padding: 3.3% 0%;
     @include radius;
-    @include responsive-container(100%, 45%);
+    @include responsive-container(100%, 40%);
     h2 {
       font-size: $baseFontSize * 2.3;
       text-align: center;

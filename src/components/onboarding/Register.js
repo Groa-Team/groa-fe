@@ -63,6 +63,9 @@ export default function Register() {
                 "Cannot be more than 15 characters long."
               ),
               validate: {
+                notUsername: value =>
+                  value !== getValues().username ||
+                  "Your password can not match your username.",
                 oneLetter: value =>
                   /^(?=.*[a-z])(?=.*[A-Z])/i.test(value) ||
                   "Must contain one letter character.",
