@@ -36,11 +36,15 @@
         border: 1px solid red;
       }
       .submit.btn {
-        display: flex;
-        justify-content: flex-end;
+        @include display-flex(space-evenly);
+        flex-direction: row-reverse;
+        .form-link {
+          margin: auto;
+          color: $sea;
+        }
         button {
-          margin-top: 4%;
-          @include responsive-container(100%, 215px, 46px);
+          margin: 4% 0% 4% 14%;
+          @include responsive-container(100%, 150px, 46px);
           @include radius;
           border: none;
           font-size: $baseFontSize * 1.1;

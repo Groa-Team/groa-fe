@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 // local
 import { inputError } from "../../utils/inputError.js";
@@ -102,6 +103,9 @@ export default function Register() {
             <button type="submit">
               <strong>Sign Up</strong>
             </button>
+            <Link className="form-link" to="/login">
+              Already have an account?
+            </Link>
           </div>
         </form>
       </div>

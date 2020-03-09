@@ -5,11 +5,12 @@ import Register from "./components/onboarding/Register.js";
 import Login from "./components/onboarding/Login.js";
 
 function App() {
+  if (window.location.pathname === "/") return <Register />;
   return (
     <div className="App">
       <Switch>
         <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
+        <Route path="/register" component={Register} />
       </Switch>
     </div>
   );

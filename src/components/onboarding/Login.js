@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 // local
 import { inputError } from "../../utils/inputError.js";
@@ -56,6 +57,9 @@ export default function Login() {
             <button type="submit">
               <strong>Login</strong>
             </button>
+            <Link className="form-link" to="/register">
+              Need an account?
+            </Link>
           </div>
         </form>
       </div>
